@@ -139,15 +139,17 @@
     // Should we show the widget, regardless?
     if (!_bftn_options.always_show_widget && window.location.href.indexOf('ALWAYS_SHOW_BFTN_WIDGET') === -1) {
 
-      // Only show once.
-      if (_bftn_util.getCookie('_BFTN_WIDGET_SHOWN')) return;
-
-      // Only show on configured date.
+      // Don't show until configured date.
       var today = new Date();
-      if (today.getFullYear() !== _bftn_options.date.getFullYear() ||
-          today.getMonth() !== _bftn_options.date.getMonth() ||
-          today.getDate() !== _bftn_options.date.getDate()) {
-          return;
+      if (today < _bftn_options.date) {
+        _bftn_util.log('Not time to show the widget yet!');
+        return;
+      }
+
+      // Only show once.
+      if (_bftn_util.getCookie('_BFTN_WIDGET_SHOWN')) {
+        _bftn_util.log('Widget has already been shown.');
+        return;
       }
     }
 

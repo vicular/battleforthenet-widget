@@ -60,8 +60,10 @@ you can pass some properties in to customize the default behavior.
     delay: 1000,
 
     /*
-     * Specify a date on which to display the widget. Defaults to July 12th, 2017 if 
-     * omitted. Useful for testing.
+     * Specify a date on which to start displaying the widget. Defaults to
+     * July 12th, 2017 if omitted. Set `new Date()` to show the widget all the time!
+     * (While still checking cookies to avoid showing it to users who have already
+     * seen it.)
      */
     date: new Date('2017-07-12'),
 
