@@ -77,6 +77,10 @@
           case 'stop':
             animation.stop();
             break;
+          case 'submit':
+            _bftn_util.log('Widget submitted successfully! Setting cookie.');
+            _bftn_util.setCookie('_BFTN_WIDGET_SUBMITTED', 'true', 365);
+            break;
         }
       }, false);
     },
@@ -146,14 +150,20 @@
         return;
       }
 
-      // Only show once.
+      // Only show once per day.
       if (_bftn_util.getCookie('_BFTN_WIDGET_SHOWN')) {
         _bftn_util.log('Widget has already been shown.');
         return;
       }
+
+      // Don't show to users who have already submitted the form!
+      if (_bftn_util.getCookie('_BFTN_WIDGET_SUBMITTED')) {
+        _bftn_util.log('Widget has already been submitted!');
+        return;
+      }
     }
 
-    _bftn_util.setCookie('_BFTN_WIDGET_SHOWN', 'true', 365);
+    _bftn_util.setCookie('_BFTN_WIDGET_SHOWN', 'true', 1);
 
     _bftn_util.injectCSS('_bftn_iframe_css', '#_bftn_iframe { position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 20000; }');
 

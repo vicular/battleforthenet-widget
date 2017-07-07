@@ -160,6 +160,9 @@
   }
 
   function onSuccess(e) {
+    // Send message to parent frame that form was submitted successfully.
+    sendMessage('submit');
+
     if (transitionTimer) clearTimeout(transitionTimer);
 
     // TODO: Error handling
