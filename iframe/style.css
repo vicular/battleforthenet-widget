@@ -36,6 +36,15 @@ h3 {
   text-transform: uppercase;
 }
 
+a {
+  color: #cccaea;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .flex {
   display: flex;
   flex-wrap: wrap;
@@ -88,7 +97,6 @@ h3 {
   position: absolute;
   right: 0.8rem;
   top: 0.8rem;
-  text-decoration: none;
 }
 
 .modal #close:hover {
@@ -239,11 +247,6 @@ h3 {
 
 .modal .disclaimer a {
   color: #b1afda;
-  text-decoration: none;
-}
-
-.modal .disclaimer a:hover {
-  text-decoration: underline;
 }
 
 .modal .disclaimer .github {
@@ -281,10 +284,6 @@ h3 {
 
 .modal footer li:first-child {
   margin-left: 0;
-}
-
-.modal footer a {
-  text-decoration: none;
 }
 
 .modal footer button {
